@@ -11,6 +11,48 @@ for (const btn of allBtn) {
 
         const selectedContainer = document.getElementById('selected-player-container');
 
+            e.target.setAttribute('disabled',false)
+
+
+        if(getValue('curt')+ 1 > 6){
+            alert('your lemit finish')
+            return;
+        }
+
+
+        if(getValue('left') <= 0){
+            alert('your lemit finish')
+            return;
+        }
+
+        if(getValue('budget') <= 0){
+            alert('your lemit finish')
+            return;
+        }
+
+
+
+
+
+
+        // update budget
+
+        const budget = getValue('budget');
+
+        document.getElementById('budget').innerText = budget - parseInt(price);
+
+
+        const curtCount = getValue('curt');
+        document.getElementById('curt').innerText = curtCount + 1;
+
+        const leftCount = getValue('left');
+        document.getElementById('left').innerText = leftCount - 1;
+
+
+
+
+
+
         const div = document.createElement('div');
         div.classList.add('w-full');
         div.classList.add('flex');
@@ -29,7 +71,8 @@ for (const btn of allBtn) {
 
          selectedContainer.appendChild(div);
 
-         updatedTotalCost(price)
+         updatedTotalCost(price);
+         updateGrandtotal();
 
 
     })
